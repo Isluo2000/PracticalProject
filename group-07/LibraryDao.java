@@ -13,6 +13,8 @@ import java.util.List;
 public class LibraryDao {
 //    TODO：罗宇欣
 //    根据书名名查询
+public void query(String bookname){
+        //    根据书名名查询
         List<Library> libraries=new ArrayList<>();
         Connection connection= DBconnection.getConnection();// 获取连接
         Statement statement=null;
@@ -25,6 +27,7 @@ public class LibraryDao {
             }else {
                 selectStr="select * from library ";
             }
+
             set= statement.executeQuery(selectStr);
             String price,publish;
             while (set.next()){   //遍历 resultSet
@@ -59,6 +62,8 @@ public class LibraryDao {
                     e.printStackTrace();
                 }
             }
+        }
+    }
         }
     //删除
     //TODO：周帮华
